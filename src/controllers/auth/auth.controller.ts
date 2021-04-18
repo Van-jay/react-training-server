@@ -1,5 +1,5 @@
 const authorise = (req: any, res: any) => {
-  res.send('fateToken');
+  res.send('fakeToken');
 };
 
 export default { authorise };
