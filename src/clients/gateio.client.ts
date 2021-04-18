@@ -12,7 +12,7 @@ export const listSpotAccounts = async () => {
   // const opts = {
   //   currency: 'asdasdas', // string | Retrieved specified currency related data
   // };
-  return SpotApi.listSpotAccounts({ currency: 'abasdasd' }).then(
+  return SpotApi.listSpotAccounts().then(
     (value: any) => Promise.resolve(value),
     (error: any) => Promise.reject(error)
   );
