@@ -1,5 +1,4 @@
-import { getBalancesFromBalanceCollection } from '../utils/firestore.utils';
-import firestore from './firestore';
+import firestore, { getBalancesFromBalanceCollection } from './firestore';
 
 const balanceCollection = firestore.collection('balance');
 

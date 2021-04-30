@@ -1,5 +1,4 @@
-import { getAllDocumentsFromCollection } from '../utils/firestore.utils';
-import firestore from './firestore';
+import firestore, { getAllDocumentsFromCollection } from './firestore';
 
 export const watchlistCollection = firestore.collection('watchlist');
 

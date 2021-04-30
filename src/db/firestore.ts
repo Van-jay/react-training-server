@@ -1,9 +1,5 @@
 import firebase from 'firebase';
 import dotenv from 'dotenv';
-import {
-  getAllDocumentsFromCollection,
-  getBalancesFromBalanceCollection,
-} from '../utils/firestore.utils';
 
 dotenv.config();
 
@@ -19,3 +15,16 @@ const firebaseApp = firebase.initializeApp({
 const firestore = firebaseApp.firestore();
 
 export default firestore;
+
+export const getAllDocumentsFromCollection = async (collection: any) => {
+  const snapshot = await collection.get();
+  return snapshot.docs.map((doc: any) => doc.data());
+};
+
+export const getBalancesFromBalanceCollection = async (
+  balanceCollection: any
+) => {
+  const balancesRef = balanceCollection.doc('balances');
+  const balances = await balancesRef.get();
+  return balances.data();
+};
