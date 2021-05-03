@@ -1,6 +1,8 @@
-const authorise = (req: any, res: any) => {
+import { Request, Response } from 'express';
+
+const authorise = (req: Request, res: Response) => {
   console.log(req.body);
-  res.send('fakeToken');
+  res.send({ token: 'fakeToken' });
 };
 
 export default { authorise };

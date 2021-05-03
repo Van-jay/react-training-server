@@ -8,6 +8,7 @@ import { errorLogger } from './middlewares/errorLogger';
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import passportJWT from 'passport-jwt';
+import bodyParser from 'body-parser';
 
 const JWTStrategy = passportJWT.Strategy;
 
@@ -53,6 +54,7 @@ passport.use(
 
 express()
   .use(cors())
+  .use(bodyParser.json())
   .use(requestLogger)
   .use(routers)
   .use(errorLogger)
