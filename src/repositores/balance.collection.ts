@@ -1,4 +1,4 @@
-import { Balance } from '../models/firestore.models';
+import { Balance } from '../models/balance.model';
 import firestore, { getBalancesFromBalanceCollection } from './firestore';
 
 const balanceCollection = firestore.collection('balance');

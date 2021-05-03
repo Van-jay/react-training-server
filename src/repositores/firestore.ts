@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import dotenv from 'dotenv';
-import { Balance } from '../models/firestore.models';
+import { Balance } from '../models/balance.model';
 
 dotenv.config();
 
