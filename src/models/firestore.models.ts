@@ -3,7 +3,7 @@ export enum FirestoreCollectionsType {
   balance = 'balance',
 }
 
-export interface Balances {
+export interface Balance {
   startingBalance: number;
   currentBalance: number;
 }

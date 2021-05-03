@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import dotenv from 'dotenv';
-import { Balances } from '../models/firestore.models';
+import { Balance } from '../models/firestore.models';
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ export const getAllDocumentsFromCollection = async (collection: any) => {
 
 export const getBalancesFromBalanceCollection = async (
   balanceCollection: any
-): Promise<Balances> => {
+): Promise<Balance> => {
   const balancesRef = balanceCollection.doc('balances');
   const balances = await balancesRef.get();
   return balances.data();

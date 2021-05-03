@@ -2,5 +2,5 @@ import { Router } from 'express';
 import balanceController from './balance.controller';
 
 export default Router()
-  .get('/getStartingBalance', balanceController.getStartingBalance)
+  .get('/getBalance', balanceController.getBalance)
   .put('/editStartingBalance', balanceController.editStartingBalance);

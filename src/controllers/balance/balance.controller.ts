@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { getBalances } from '../../db/balance.collection';
+import balanceService from '../../services/balance.service';
 
-const getStartingBalance = async (req: Request, res: Response) => {
-  const balances = await getBalances();
-  res.send({ startingBalance: balances.startingBalance });
+const getBalance = async (req: Request, res: Response) => {
+  const balance = await balanceService.getBalance();
+  res.send(balance);
 };
 
 const editStartingBalance = (req: Request, res: Response) => {
@@ -11,4 +11,4 @@ const editStartingBalance = (req: Request, res: Response) => {
   res.send({ startingBalance: 123 });
 };
 
-export default { getStartingBalance, editStartingBalance };
+export default { getBalance, editStartingBalance };
