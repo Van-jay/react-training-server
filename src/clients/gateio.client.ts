@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { AccountsList } from '../models/gateio.models';
+import { Account } from '../models/gateio.models';
 
 const GateApi = require('gate-api');
 
@@ -9,7 +9,7 @@ const client = new GateApi.ApiClient();
 const SpotApi = new GateApi.SpotApi(client);
 client.setApiKeySecret(process.env.GATEIO_KEY, process.env.GATEIO_SECRET);
 
-export const listSpotAccounts = async (): Promise<AccountsList[]> => {
+export const listSpotAccounts = async (): Promise<Account[]> => {
   // const opts = {
   //   currency: 'asdasdas', // string | Retrieved specified currency related data
   // };

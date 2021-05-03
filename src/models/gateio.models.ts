@@ -1,5 +1,5 @@
 // TODO: add request and response models
-export interface AccountsList {
+export interface Account {
   account: string;
   available: number;
 }
