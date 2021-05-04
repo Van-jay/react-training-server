@@ -7,7 +7,6 @@ const getBalance = async (req: Request, res: Response) => {
 };
 
 const editStartingBalance = (req: Request, res: Response) => {
-  console.log(req.body);
   res.send({ startingBalance: 123 });
 };
 

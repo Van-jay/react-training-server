@@ -15,7 +15,6 @@ const usersMock: UserCredentials[] = [
 const authoriseUser = async (
   authCredentials: UserCredentials
 ): Promise<string> => {
-  console.log(authCredentials);
   const user = usersMock.find(
     (user: UserCredentials) => user.username === authCredentials.username
   );

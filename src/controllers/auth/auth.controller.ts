@@ -7,7 +7,7 @@ const authorise = (req: Request, res: Response) => {
     .authoriseUser(userCredentials)
     .then((token) => {
       res.status(200).send({ token });
-      console.log(token);
+      token;
     })
     .catch((error) => {
       res.status(400).send({ error });
