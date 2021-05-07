@@ -1,17 +1,21 @@
 import { Request, Response } from 'express';
-import authService from '../../services/auth.service';
+import AuthService from '../../services/auth.service';
 
-const authorise = (req: Request, res: Response) => {
-  const userCredentials = req.body;
-  authService
-    .authoriseUser(userCredentials)
-    .then((token) => {
-      res.status(200).send({ token });
-      token;
-    })
-    .catch((error) => {
-      res.status(400).send({ error });
-    });
-};
+const authService = new AuthService();
 
-export default { authorise };
+export default class AuthController {
+  constructor(private readonly authService: AuthService) {}
+
+  authorise = (req: Request, res: Response) => {
+    const userCredentials = req.body;
+    this.authService
+      .authoriseUser(userCredentials)
+      .then((token) => {
+        res.status(200).send({ token });
+        token;
+      })
+      .catch((error) => {
+        res.status(400).send({ error });
+      });
+  };
+}

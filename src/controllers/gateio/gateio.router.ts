@@ -1,5 +1,8 @@
 import { Router } from 'express';
-import gateioController from './gateio.controller';
+import GateioController from './gateio.controller';
+import AccountsService from '../../services/accounts.service';
+
+const gateioController = new GateioController(new AccountsService());
 
 export default Router().get(
   '/getAccountsList',

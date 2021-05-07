@@ -1,13 +1,16 @@
 import { Request, Response } from 'express';
-import { listSpotAccounts } from '../../clients/gateio.client';
 import { Account } from '../../models/gateio.models';
+import AccountsService from '../../services/accounts.service';
 
-const getAccountsList = async (req: Request, res: Response) => {
-  listSpotAccounts().then(
-    (accountsList: Account[]) => res.send(accountsList),
-    (error: any) =>
-      res.status(error.response.status).send('Could not fetch accounts.')
-  );
-};
+// const accountsService = new AccountsService();
+export default class GateioController {
+  constructor(private readonly accountsService: AccountsService) {}
 
-export default { getAccountsList };
+  getAccountsList = async (req: Request, res: Response) => {
+    this.accountsService.listSpotAccountsGateio().then(
+      (accountsList: Account[]) => res.send(accountsList),
+      (error: any) =>
+        res.status(error.response.status).send('Could not fetch accounts.')
+    );
+  };
+}

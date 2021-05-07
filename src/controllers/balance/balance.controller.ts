@@ -1,13 +1,15 @@
 import { Request, Response } from 'express';
-import balanceService from '../../services/balance.service';
+import BalanceService from '../../services/balance.service';
 
-const getBalance = async (req: Request, res: Response) => {
-  const balance = await balanceService.getBalance();
-  res.send(balance);
-};
+export default class BalanceController {
+  constructor(private readonly balanceService: BalanceService) {}
 
-const editStartingBalance = (req: Request, res: Response) => {
-  res.send({ startingBalance: 123 });
-};
+  getBalance = async (req: Request, res: Response) => {
+    const balance = await this.balanceService.getBalance();
+    res.send(balance);
+  };
 
-export default { getBalance, editStartingBalance };
+  editStartingBalance = (req: Request, res: Response) => {
+    res.send({ startingBalance: 123 });
+  };
+}
