@@ -20,11 +20,13 @@
     "express-winston": "^4.1.0",
     "firebase": "^8.4.1",
     "gate-api": "^4.20.1",
+    "inversify": "^5.1.1",
     "jsonwebtoken": "^8.5.1",
     "kucoin-node-sdk": "^1.0.3",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
     "winston": "^3.3.3"
   },
   "devDependencies": {

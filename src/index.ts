@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import 'reflect-metadata';
 import routers from './routers';
 import { requestLogger } from './middlewares/requestLogger';
 import { errorLogger } from './middlewares/errorLogger';
