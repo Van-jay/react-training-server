@@ -1,6 +1,8 @@
 import dotenv from 'dotenv';
+import { injectable } from 'inversify';
 import jwt from 'jsonwebtoken';
 import { UserCredentials } from '../models/user';
+import { IAuthService } from './interfaces/IAuthService';
 
 dotenv.config();
 
@@ -12,7 +14,8 @@ const usersMock: UserCredentials[] = [
   },
 ];
 
-export default class AuthService {
+@injectable()
+export default class AuthService implements IAuthService {
   authoriseUser = async (authCredentials: UserCredentials): Promise<string> => {
     const user = usersMock.find(
       (user: UserCredentials) => user.username === authCredentials.username

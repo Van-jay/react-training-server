@@ -1,14 +1,20 @@
 import { Request, Response } from 'express';
+import { inject, injectable } from 'inversify';
+import { TYPES } from '../../di/di.types';
 import AuthService from '../../services/auth.service';
+import { IAuthController } from './interfaces/IAuthController';
 
-const authService = new AuthService();
+@injectable()
+export default class AuthController implements IAuthController {
+  private _authService: AuthService;
 
-export default class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(@inject(TYPES.IAuthService) private authService: AuthService) {
+    this._authService = authService;
+  }
 
   authorise = (req: Request, res: Response) => {
     const userCredentials = req.body;
-    this.authService
+    this._authService
       .authoriseUser(userCredentials)
       .then((token) => {
         res.status(200).send({ token });
