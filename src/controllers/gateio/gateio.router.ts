@@ -1,8 +1,11 @@
 import { Router } from 'express';
-import GateioController from './gateio.controller';
-import AccountsService from '../../services/accounts.service';
+import { IAccountsController } from './interfaces/IAccountsController';
+import { TYPES } from '../../di/di.types';
+import { container } from '../../di/inversify.config';
 
-const gateioController = new GateioController(new AccountsService());
+const gateioController = container.get<IAccountsController>(
+  TYPES.IAccountsController
+);
 
 export default Router().get(
   '/getAccountsList',

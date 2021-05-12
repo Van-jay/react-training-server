@@ -8,6 +8,10 @@ import { IAuthService } from '../services/interfaces/IAuthService';
 import AuthService from '../services/auth.service';
 import { IAuthController } from '../controllers/auth/interfaces/IAuthController';
 import AuthController from '../controllers/auth/auth.controller';
+import { IAccountsService } from '../services/IAccountsService';
+import AccountsService from '../services/accounts.service';
+import { IAccountsController } from '../controllers/gateio/interfaces/IAccountsController';
+import GateioController from '../controllers/gateio/gateio.controller';
 
 const container = new Container();
 
@@ -20,5 +24,11 @@ container
 // auth
 container.bind<IAuthService>(TYPES.IAuthService).to(AuthService);
 container.bind<IAuthController>(TYPES.IAuthController).to(AuthController);
+
+// accounts
+container.bind<IAccountsService>(TYPES.IAccountsService).to(AccountsService);
+container
+  .bind<IAccountsController>(TYPES.IAccountsController)
+  .to(GateioController);
 
 export { container };

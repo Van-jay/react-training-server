@@ -1,7 +1,10 @@
+import { injectable } from 'inversify';
 import { Account } from '../models/gateio.models';
 import gateioAPI from '../clients/gateio.client';
+import { IAccountsService } from './IAccountsService';
 
-export default class AccountsService {
+@injectable()
+export default class AccountsService implements IAccountsService {
   listSpotAccountsGateio = async (): Promise<Account[]> => {
     // const opts = {
     //   currency: 'asdasdas', // string | Retrieved specified currency related data
